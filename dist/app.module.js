@@ -10,8 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
+var home_component_1 = require("./home/home.component");
+var user_profile_component_1 = require("./users/user-profile.component");
+var user_box_component_1 = require("./users/user-box.component");
+var not_found_component_1 = require("./not-found/not-found.component");
+var app_routing_1 = require("./app.routing");
+var user_service_1 = require("./shared/services/user.service");
+require("rxjs/add/operator/map");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -21,12 +29,20 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
+            app_routing_1.appRouting,
+            http_1.HttpModule,
             forms_1.FormsModule
         ],
         declarations: [
-            app_component_1.AppComponent
+            app_component_1.AppComponent,
+            home_component_1.HomeComponent,
+            user_profile_component_1.UserProfileComponent,
+            user_box_component_1.UserBoxComponent,
+            not_found_component_1.NotFoundComponent
         ],
-        providers: [],
+        providers: [
+            user_service_1.UserService
+        ],
         bootstrap: [app_component_1.AppComponent]
     }),
     __metadata("design:paramtypes", [])
